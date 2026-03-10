@@ -8,6 +8,11 @@ services:
      POSTGRES_DB: todo 
    volumes: 
      - ./data:/var/lib/postgresql 
+   healthcheck:
+      test: ["CMD", "pg_isready", "-U", "administrator"] 
+      interval: 10s 
+      timeout: 5s 
+      retries: 5
   app: 
    build: . 
    restart: always 
