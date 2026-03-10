@@ -9,7 +9,7 @@ services:
    volumes: 
      - ./data:/var/lib/postgresql 
    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "administrator"] 
+      test: ["CMD", "pg_isready -U administrator -d todo"] 
       interval: 10s 
       timeout: 5s 
       retries: 5
